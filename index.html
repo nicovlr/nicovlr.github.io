@@ -1,4 +1,456 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>nicovlr — games</title><meta http-equiv="refresh" content="0; url=/paris-panic/"><link rel="canonical" href="/paris-panic/"></head>
-<body><p><a href="/paris-panic/">Paris Panic</a></p></body></html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Nicolas Valerino</title>
+<link rel="canonical" href="https://nicovlr.github.io/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%2064%2064%27%3E%3Crect%20width%3D%2764%27%20height%3D%2764%27%20rx%3D%2714%27%20fill%3D%27%23101a2c%27/%3E%3Ctext%20x%3D%2732%27%20y%3D%2742%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2CHelvetica%2Csans-serif%27%20font-weight%3D%27800%27%20font-size%3D%2728%27%20fill%3D%27%23ff7c54%27%3ENV%3C/text%3E%3C/svg%3E">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://nicovlr.github.io/">
+<meta property="og:title" content="Nicolas Valerino">
+<meta property="og:description" content="Technical Solutions Consultant, Apps and Gaming. iOS apps and games on the App Store, and eRescue, a SaaS deployed for beach lifeguards.">
+<meta property="og:image" content="https://nicovlr.github.io/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="color-scheme" content="light dark">
+<style>:root { padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); } [hidden] { display: none !important; }</style>
+<meta name="description" content="Nicolas Valerino, Technical Solutions Consultant for Apps and Gaming. iOS apps and games on the App Store, and eRescue, a SaaS deployed for beach lifeguards.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<style>
+/* Layout: a consultant's dossier. Identity and a dock of shipped products up top, then case files,
+   each with a narrow mono label rail on wide screens. App cards borrow the App Store's info strip. */
+:root {
+  --paper: #f2f4f8;
+  --surface: #ffffff;
+  --ink: #101a2c;
+  --ink-soft: #4b576e;
+  --line: #d9dee8;
+  --signal: #b8411d;
+  --live: #136f43;
+  --live-tint: #e2f3ea;
+  --pending: #8a5a0c;
+  --pending-tint: #f8eedb;
+  --device: #0c111b;
+  --icon-tile: #ffffff;
+  --flag-green: #2f9b50;
+  --flag-yellow: #e7b62c;
+  --flag-red: #d6382a;
+  --flag-purple: #7a3fa6;
+  --display: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --text: "IBM Plex Sans", -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #0b1019; --surface: #121a27; --ink: #e8edf6; --ink-soft: #9ba7bd; --line: #243047;
+    --signal: #ff7c54; --live: #47cf8f; --live-tint: #133022; --pending: #e7b24e; --pending-tint: #33270f;
+    --device: #000000; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #0b1019; --surface: #121a27; --ink: #e8edf6; --ink-soft: #9ba7bd; --line: #243047;
+  --signal: #ff7c54; --live: #47cf8f; --live-tint: #133022; --pending: #e7b24e; --pending-tint: #33270f;
+  --device: #000000; color-scheme: dark;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; background: var(--paper); color: var(--ink); font: 400 16px/1.6 var(--text); -webkit-font-smoothing: antialiased; }
+img, video { max-width: 100%; }
+a { color: inherit; text-decoration-color: color-mix(in srgb, var(--signal) 55%, transparent); text-underline-offset: 3px; }
+a:hover { color: var(--signal); }
+:focus-visible { outline: 2px solid var(--signal); outline-offset: 3px; border-radius: 4px; }
+h1, h2, h3 { font-family: var(--display); text-wrap: balance; margin: 0; }
+p { margin: 0; }
+ul, ol { margin: 0; padding: 0; }
+
+.wrap {
+  max-width: 1120px; margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 0 48px;
+}
+.label { font: 500 12px/1.4 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--ink-soft); }
+
+/* ---------------------------------------------------------------- hero */
+.hero { padding-block: clamp(40px, 7vw, 88px) 40px; display: grid; gap: 22px; }
+.role { font: 500 12.5px/1.4 var(--mono); letter-spacing: .09em; text-transform: uppercase; color: var(--signal); }
+.hero h1 { font-weight: 820; font-stretch: 125%; font-size: clamp(2.6rem, 1.3rem + 6.2vw, 5.6rem); line-height: .94; letter-spacing: -.02em; }
+.lead { max-width: 60ch; font-size: clamp(1.06rem, 1rem + .35vw, 1.24rem); line-height: 1.55; }
+.lead strong { font-weight: 600; }
+.contact { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+.mail { display: inline-flex; align-items: center; gap: 4px; border: 1px solid var(--line); background: var(--surface); border-radius: 10px; padding: 4px 4px 4px 12px; }
+.mail span { font: 500 14px/1.2 var(--mono); user-select: all; }
+.btn { font: 600 14px/1 var(--text); color: var(--ink); background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 10px 14px; text-decoration: none; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; }
+.btn:hover { border-color: var(--signal); color: var(--ink); }
+.mail .btn { padding: 7px 10px; border-radius: 7px; background: var(--paper); }
+.btn svg { width: 16px; height: 16px; fill: currentColor; flex: none; }
+.where { color: var(--ink-soft); font-size: 14px; }
+
+.dock { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin-top: 10px; }
+.tile { display: grid; grid-template-columns: 52px minmax(0, 1fr); align-items: center; gap: 12px; padding: 12px; background: var(--surface); border: 1px solid var(--line); border-radius: 16px; text-decoration: none; }
+.tile:hover { border-color: var(--signal); color: inherit; }
+.tile img { width: 52px; height: 52px; border-radius: 12px; display: block; }
+.tile .mark { width: 52px; height: 52px; border-radius: 12px; background: var(--icon-tile); border: 1px solid var(--line); display: grid; place-items: center; }
+.tile .mark img { width: 34px; height: 34px; border-radius: 0; }
+.tile b { display: block; font: 700 16px/1.2 var(--display); font-stretch: 108%; }
+.status { display: inline-flex; align-items: center; gap: 6px; font: 500 12px/1.3 var(--mono); color: var(--ink-soft); }
+.status::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--live); flex: none; }
+.status.soon::before { background: var(--pending); }
+
+/* ---------------------------------------------------------------- sections */
+.sec { display: grid; grid-template-columns: 180px minmax(0, 1fr); gap: 32px; padding-block: 52px; border-top: 1px solid var(--line); }
+.sec > .label { padding-top: 9px; }
+.body { display: grid; gap: 24px; min-width: 0; }
+.sec h2 { font-weight: 760; font-stretch: 112%; font-size: clamp(1.6rem, 1.2rem + 1.4vw, 2.2rem); line-height: 1.1; letter-spacing: -.01em; }
+.intro { max-width: 64ch; color: var(--ink-soft); }
+
+/* App Store style cards */
+.app { background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: clamp(18px, 2.4vw, 28px); display: grid; gap: 18px; min-width: 0; }
+.app-head { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; }
+.app-head > img { width: 68px; height: 68px; border-radius: 15px; flex: none; }
+.app-title { display: grid; gap: 2px; min-width: 0; flex: 1 1 220px; }
+.app-title h3 { font-weight: 740; font-stretch: 106%; font-size: 1.32rem; line-height: 1.2; }
+.app-title p { color: var(--ink-soft); font-size: .95rem; }
+.pill { font: 500 12px/1 var(--mono); letter-spacing: .04em; padding: 7px 10px; border-radius: 999px; background: var(--live-tint); color: var(--live); white-space: nowrap; }
+.pill.soon { background: var(--pending-tint); color: var(--pending); }
+.facts { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px 16px; padding-block: 12px; border-block: 1px solid var(--line); margin: 0; }
+.facts div { display: grid; gap: 2px; min-width: 0; }
+.facts dt { font: 500 11px/1.3 var(--mono); letter-spacing: .07em; text-transform: uppercase; color: var(--ink-soft); }
+.facts dd { margin: 0; font: 680 1.06rem/1.25 var(--display); font-stretch: 104%; font-variant-numeric: tabular-nums; }
+.desc { max-width: 66ch; }
+.points { list-style: none; display: grid; gap: 10px; }
+.points li { display: grid; grid-template-columns: 112px minmax(0, 1fr); gap: 12px; }
+.points li > span:first-child { font: 500 11.5px/1.75 var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--ink-soft); }
+.store { justify-self: start; }
+
+.featured { grid-template-columns: minmax(0, 1fr) 272px; column-gap: clamp(20px, 3vw, 40px); align-items: start; }
+.featured > .main { display: grid; gap: 18px; min-width: 0; }
+.featured .note { font-size: 14px; color: var(--ink-soft); }
+.phone { width: min(100%, 272px); aspect-ratio: 780 / 1688; background: var(--device); border-radius: 38px; padding: 9px; box-shadow: 0 18px 40px -22px rgba(8, 14, 30, .55); }
+.phone video, .phone img { width: 100%; height: 100%; object-fit: cover; border-radius: 30px; display: block; background: var(--device); }
+.media { display: grid; gap: 10px; justify-items: center; }
+.media .label { text-align: center; }
+
+.pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.pair .app { grid-template-rows: auto auto auto 1fr auto auto; }
+.shots { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; max-width: 340px; }
+.shots img { width: 100%; height: auto; aspect-ratio: 598 / 1300; object-fit: cover; border-radius: 12px; border: 1px solid var(--line); display: block; }
+
+.more { color: var(--ink-soft); font-size: 15px; max-width: 70ch; }
+.more b { color: var(--ink); font-weight: 600; }
+
+/* business models table */
+.table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 14px; background: var(--surface); }
+table { border-collapse: collapse; width: 100%; min-width: 560px; font-size: 15px; }
+th, td { text-align: left; padding: 12px 16px; vertical-align: top; border-bottom: 1px solid var(--line); }
+tr:last-child td { border-bottom: 0; }
+th { font: 500 11.5px/1.3 var(--mono); letter-spacing: .07em; text-transform: uppercase; color: var(--ink-soft); background: color-mix(in srgb, var(--paper) 60%, var(--surface)); }
+td:first-child { font-weight: 600; white-space: nowrap; }
+td:nth-child(2) { white-space: nowrap; }
+
+/* eRescue case */
+.case { background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: clamp(18px, 2.4vw, 28px); display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: clamp(20px, 3vw, 40px); align-items: start; }
+.case .main { display: grid; gap: 20px; min-width: 0; }
+.steps { list-style: none; display: grid; gap: 14px; counter-reset: step; }
+.steps li { display: grid; grid-template-columns: 30px minmax(0, 1fr); gap: 12px; counter-increment: step; }
+.steps li::before { content: counter(step); width: 28px; height: 28px; border-radius: 50%; border: 1px solid var(--line); display: grid; place-items: center; font: 500 13px/1 var(--mono); color: var(--ink-soft); }
+.steps b { font-weight: 600; }
+.stack { font-size: 15px; color: var(--ink-soft); }
+.stack b { color: var(--ink); font-weight: 600; }
+
+.logbook { border: 1px solid var(--line); border-radius: 16px; padding: 16px; display: grid; gap: 14px; background: var(--paper); }
+.logbook header { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+.logbook header b { font: 700 15px/1.2 var(--display); font-stretch: 106%; }
+.flags { display: grid; gap: 6px; }
+.flagbar { display: grid; grid-template-columns: 2.3fr 3.2fr 2fr; height: 12px; border-radius: 6px; overflow: hidden; }
+.flagbar i { display: block; }
+.flagbar i:nth-child(1) { background: var(--flag-green); }
+.flagbar i:nth-child(2) { background: var(--flag-yellow); }
+.flagbar i:nth-child(3) { background: var(--flag-purple); }
+.flagtimes { display: grid; grid-template-columns: 2.3fr 3.2fr 2fr; font: 500 11.5px/1.2 var(--mono); color: var(--ink-soft); font-variant-numeric: tabular-nums; }
+.entries { list-style: none; display: grid; gap: 8px; font-size: 14px; }
+.entries li { display: grid; grid-template-columns: 46px minmax(0, 1fr); gap: 8px; padding-top: 8px; border-top: 1px dashed var(--line); }
+.entries time { font: 500 12.5px/1.6 var(--mono); color: var(--ink-soft); font-variant-numeric: tabular-nums; }
+.logbook .label { font-size: 11px; }
+
+/* experience */
+.roles { list-style: none; display: grid; gap: 0; }
+.roles li { display: grid; grid-template-columns: 170px minmax(0, 1fr); gap: 20px; padding-block: 16px; border-top: 1px solid var(--line); }
+.roles li:first-child { border-top: 0; padding-top: 0; }
+.roles time { font: 500 13px/1.6 var(--mono); color: var(--ink-soft); font-variant-numeric: tabular-nums; }
+.roles h3 { font: 680 1.08rem/1.35 var(--display); font-stretch: 104%; }
+.roles h3 span { font-family: var(--text); font-weight: 400; color: var(--ink-soft); }
+.roles p { margin-top: 4px; max-width: 66ch; }
+
+/* open source */
+.repos { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+.repo { display: grid; gap: 6px; align-content: start; padding: 16px; border: 1px solid var(--line); border-radius: 14px; background: var(--surface); text-decoration: none; }
+.repo:hover { border-color: var(--signal); color: inherit; }
+.repo b { font: 600 15px/1.3 var(--mono); }
+.repo p { font-size: 14.5px; color: var(--ink-soft); }
+.repo .label { margin-top: 4px; }
+
+/* skills */
+.skills { display: grid; gap: 14px; margin: 0; }
+.skills div { display: grid; grid-template-columns: 170px minmax(0, 1fr); gap: 20px; }
+.skills dt { font: 500 12px/1.9 var(--mono); letter-spacing: .07em; text-transform: uppercase; color: var(--ink-soft); }
+.skills dd { margin: 0; }
+
+footer.end { border-top: 1px solid var(--line); padding-block: 32px 0; display: flex; flex-wrap: wrap; gap: 14px 24px; align-items: center; justify-content: space-between; color: var(--ink-soft); font-size: 14px; }
+footer.end .contact { gap: 8px; }
+
+@media (max-width: 960px) {
+  .dock { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .pair { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 860px) {
+  .sec { grid-template-columns: minmax(0, 1fr); gap: 14px; padding-block: 40px; }
+  .sec > .label { padding-top: 0; }
+  .featured, .case { grid-template-columns: minmax(0, 1fr); }
+  .media { justify-self: center; }
+  .logbook { max-width: 420px; }
+}
+@media (max-width: 560px) {
+  .dock { grid-template-columns: minmax(0, 1fr); }
+  .facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .points li, .roles li, .skills div { grid-template-columns: minmax(0, 1fr); gap: 2px; }
+  .mail span { font-size: 13px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  * { scroll-behavior: auto !important; transition: none !important; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="hero">
+    <p class="role">Technical Solutions Consultant · Apps and Gaming</p>
+    <h1>Nicolas Valerino</h1>
+    <p class="lead">Developer who sits between clients and code. I designed, sold and deployed <strong>eRescue</strong> on my own, a SaaS that lifeguard teams use on about 28 beaches. I also ship <strong>iOS apps and games</strong> on my own Apple developer account and design how they make money.</p>
+    <div class="contact">
+      <div class="mail"><span id="email">nico.valerino@gmail.com</span><button class="btn" type="button" id="copy-email" data-copy="nico.valerino@gmail.com" aria-controls="email">Copy</button></div>
+      <a class="btn" href="https://www.linkedin.com/in/nico-vlr123" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5A2.5 2.5 0 1 1 5 8.5a2.5 2.5 0 0 1-.02-5ZM3 9.75h4V21H3V9.75Zm6.5 0h3.83v1.54h.06c.53-1 1.84-2.06 3.79-2.06 4.05 0 4.8 2.67 4.8 6.13V21h-4v-5.02c0-1.2-.02-2.74-1.67-2.74-1.67 0-1.93 1.3-1.93 2.65V21h-4V9.75Z"/></svg>LinkedIn</a>
+      <a class="btn" href="https://github.com/nicovlr" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.58 9.58 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"/></svg>GitHub</a>
+    </div>
+    <p class="where">Paris, France · French (native), English (B2)</p>
+
+    <nav class="dock" aria-label="Products">
+      <a class="tile" href="#paris-panic"><img src="assets/paris-panic-icon.png" alt="" width="52" height="52"><span><b>Paris Panic</b><span class="status soon">Coming soon</span></span></a>
+      <a class="tile" href="#swiped"><img src="assets/swiped-icon.png" alt="" width="52" height="52"><span><b>Swiped</b><span class="status">Live on the App Store</span></span></a>
+      <a class="tile" href="#all-in-wake"><img src="assets/all-in-wake-icon.png" alt="" width="52" height="52"><span><b>All In Wake</b><span class="status">Live on the App Store</span></span></a>
+      <a class="tile" href="#erescue"><span class="mark"><img src="assets/erescue-icon.svg" alt="" width="34" height="34"></span><span><b>eRescue</b><span class="status">In use on ~28 beaches</span></span></a>
+    </nav>
+  </header>
+
+  <section class="sec" id="apps" aria-labelledby="apps-title">
+    <p class="label">Apps and games</p>
+    <div class="body">
+      <h2 id="apps-title">Three apps, three business models</h2>
+      <p class="intro">All three run on my own Apple developer account, and I handle the whole chain: code, builds, TestFlight, App Review, localization and store listings.</p>
+
+      <article class="app featured" id="paris-panic">
+        <div class="main">
+          <div class="app-head">
+            <img src="assets/paris-panic-icon.png" alt="Paris Panic icon" width="68" height="68">
+            <div class="app-title"><h3>Paris Panic: Tower Defense</h3><p>Cartoon tower defense for iPhone, played one-handed in portrait</p></div>
+            <span class="pill soon">Coming soon</span>
+          </div>
+          <dl class="facts">
+            <div><dt>Price</dt><dd>Free</dd></div>
+            <div><dt>Engine</dt><dd>Unity 6</dd></div>
+            <div><dt>Languages</dt><dd>33</dd></div>
+            <div><dt>Store locales</dt><dd>39</dd></div>
+          </dl>
+          <p class="desc">A crowd marches down a postcard Paris boulevard from the Arc de Triomphe, and your cordon is the last line. Place units on the sidewalks, specialize them and hold as many waves as you can. Nobody really gets hurt: dispersed protesters run off to the café.</p>
+          <ul class="points">
+            <li><span>Monetization</span><span>Free-to-play with Unity Ads. Rewarded videos are opt-in (continue a lost run, or start the next one with extra cash) and interstitials are capped at one every two runs. A remove-ads purchase comes next.</span></li>
+            <li><span>Compliance</span><span>App Tracking Transparency prompt before the ad SDK starts, privacy manifests, App Privacy labels and app-ads.txt.</span></li>
+            <li><span>Game design</span><span>3 unit cards that branch into 7 specializations, 6 enemy types including a tractor boss, endless waves in 8-wave cycles, seasons that combine 3 streets with 5 rules, and a 12-skill progression tree.</span></li>
+            <li><span>Production</span><span>Every 3D asset is generated by Blender scripts. One script runs the Unity build, automated playtests and the TestFlight upload.</span></li>
+          </ul>
+          <p class="note">Submitted to the App Store in October 2026.</p>
+        </div>
+        <figure class="media" style="margin:0">
+          <div class="phone"><video id="gameplay" src="assets/paris-panic-gameplay.mp4" poster="assets/paris-panic-poster.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Paris Panic gameplay: placing riot police units, choosing the tear gas specialty, then the crowd and a tractor meeting the defense"></video></div>
+          <figcaption class="label">Gameplay, captured in engine</figcaption>
+        </figure>
+      </article>
+
+      <div class="pair">
+        <article class="app" id="swiped">
+          <div class="app-head">
+            <img src="assets/swiped-icon.png" alt="Swiped icon" width="68" height="68">
+            <div class="app-title"><h3>Swiped</h3><p>Photo and video cleaner for iPhone and iPad</p></div>
+            <span class="pill">Live</span>
+          </div>
+          <dl class="facts">
+            <div><dt>Price</dt><dd>Free</dd></div>
+            <div><dt>Rating (FR)</dt><dd>5.0 ★</dd></div>
+            <div><dt>Size</dt><dd>1.4 MB</dd></div>
+            <div><dt>Languages</dt><dd>9</dd></div>
+          </dl>
+          <p class="desc">Swipe left to delete, right to keep. No ads, no subscription, no account, and photos never leave the phone.</p>
+          <ul class="points">
+            <li><span>Engineering</span><span>Swift 6 with strict concurrency, SwiftUI, 65 automated tests plus a monkey test, CI on GitHub Actions.</span></li>
+            <li><span>Store</span><span>Subtitles and keywords for 15 storefronts picked from Apple's search suggestions, localized iPhone and iPad screenshots.</span></li>
+          </ul>
+          <div class="shots"><img src="assets/swiped-1.jpg" alt="Swiped screenshot: swipe right to keep, left to delete" loading="lazy" width="360" height="783"><img src="assets/swiped-2.jpg" alt="Swiped screenshot: review the photos before deleting them" loading="lazy" width="360" height="783"></div>
+          <a class="btn store" href="https://apps.apple.com/us/app/swiped-photo-video-cleaner/id6761209879" target="_blank" rel="noopener">View on the App Store</a>
+        </article>
+
+        <article class="app" id="all-in-wake">
+          <div class="app-head">
+            <img src="assets/all-in-wake-icon.png" alt="All In Wake icon" width="68" height="68">
+            <div class="app-title"><h3>All In Wake</h3><p>Alarm clock game for iPhone</p></div>
+            <span class="pill">Live</span>
+          </div>
+          <dl class="facts">
+            <div><dt>Price</dt><dd>$0.99</dd></div>
+            <div><dt>Size</dt><dd>7.2 MB</dd></div>
+            <div><dt>Languages</dt><dd>33</dd></div>
+            <div><dt>Requires</dt><dd>iOS 17</dd></div>
+          </dl>
+          <p class="desc">The alarm you have to beat at roulette. Pick a color and spin: only a win stops the alarm, and there is no snooze.</p>
+          <ul class="points">
+            <li><span>iOS</span><span>Keeps ringing until you win, with a new Time Sensitive alert every 30 seconds for up to 10 minutes, even when the app is closed.</span></li>
+            <li><span>App Review</span><span>An update was flagged as a gambling app because of its age-rating answers and listing wording. I corrected the age rating, removed that vocabulary from the texts, keywords and screenshots in 15 locales, and resubmitted the same day. It was approved.</span></li>
+          </ul>
+          <div class="shots"><img src="assets/all-in-wake-1.jpg" alt="All In Wake screenshot: the alarm stops only if you win" loading="lazy" width="360" height="783"><img src="assets/all-in-wake-2.jpg" alt="All In Wake screenshot: the win screen" loading="lazy" width="360" height="783"></div>
+          <a class="btn store" href="https://apps.apple.com/us/app/all-in-wake-roulette-alarm/id6819051677" target="_blank" rel="noopener">View on the App Store</a>
+        </article>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th scope="col">App</th><th scope="col">Model</th><th scope="col">How it earns or grows</th></tr></thead>
+          <tbody>
+            <tr><td>Swiped</td><td>Free</td><td>No ads, no subscription, no account. Growth comes from App Store search and shared links.</td></tr>
+            <tr><td>All In Wake</td><td>Paid upfront</td><td>$0.99 / 0,99 €, no ads and no in-app purchases.</td></tr>
+            <tr><td>Paris Panic</td><td>Free-to-play</td><td>Unity Ads: opt-in rewarded videos, interstitials capped at one every two runs. Remove-ads purchase planned.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="more"><b>In development:</b> Railstead (formerly Cozy Rails), a railway management game for PC and Mac in Unity, planned for Steam and the Mac App Store.</p>
+    </div>
+  </section>
+
+  <section class="sec" id="erescue" aria-labelledby="erescue-title">
+    <p class="label">Client work</p>
+    <div class="body">
+      <h2 id="erescue-title">eRescue, a SaaS for beach lifeguards</h2>
+      <article class="case">
+        <div class="main">
+          <p class="desc">I designed, sold and deployed eRescue alone. The first client is SMGBL, the beach-safety authority of the Landes: lifeguard teams use it on about 28 beaches, and I own the technical relationship, support and training. <a href="https://e-rescue.fr" target="_blank" rel="noopener">e-rescue.fr</a></p>
+          <ol class="steps">
+            <li><span><b>Discovery.</b> Field sessions with lifeguards and coordinators to map how flags, logbooks, care reports and shifts were handled on paper.</span></li>
+            <li><span><b>Demo and sale.</b> Live demos for elected officials, then the first client signed.</span></li>
+            <li><span><b>Rollout.</b> Tablets set up in the lifeguard posts, with on-site training.</span></li>
+            <li><span><b>Support.</b> Releases and support through the season. Field feedback goes into the backlog (Jira, sprints).</span></li>
+          </ol>
+          <p class="stack"><b>What I built:</b> a React Native tablet app for the posts, a Next.js dashboard for coordinators, real-time flags and incidents with Pusher, PostgreSQL on EU hosting (Neon) and Auth.js.</p>
+          <p class="stack"><b>Data consulting for SMGBL:</b> paper surveillance logs replaced by tablet capture, and attendance, incident and sea-weather data turned into statistics and a predictive attendance model presented to post chiefs and elected officials.</p>
+        </div>
+        <aside class="logbook" aria-label="Sample of the tablet logbook">
+          <header><b>Lifeguard post</b><span class="label">Sample day</span></header>
+          <div class="flags">
+            <span class="label">Swimming flag</span>
+            <div class="flagbar" role="img" aria-label="Green flag at 09:00, yellow at 11:20, purple at 14:32"><i></i><i></i><i></i></div>
+            <div class="flagtimes"><span>09:00</span><span>11:20</span><span>14:32</span></div>
+          </div>
+          <ul class="entries">
+            <li><time>14:32</time><span>Flag changed to purple</span></li>
+            <li><time>15:05</time><span>Care: weever fish sting</span></li>
+            <li><time>15:47</time><span>Prevention: megaphone announcement</span></li>
+          </ul>
+        </aside>
+      </article>
+    </div>
+  </section>
+
+  <section class="sec" id="experience" aria-labelledby="experience-title">
+    <p class="label">Experience</p>
+    <div class="body">
+      <h2 id="experience-title">Background</h2>
+      <ul class="roles">
+        <li><time>Aug 2025 – now</time><div><h3>Software and Automation Developer <span>· Thales, work-study</span></h3><p>Python automation pipelines and ETL scripts for engineering teams across several business units, from requirements to delivery. I co-develop an internal web app (FastAPI, Node.js, Angular) on Linux servers and work on moving an internal tool to MCP so engineers can drive it from AI agents.</p></div></li>
+        <li><time>2025 – now</time><div><h3>Founder and Sole Developer <span>· eRescue</span></h3><p>Product, sale, deployment, support and training for the first client.</p></div></li>
+        <li><time>Sep 2025 – now</time><div><h3>Digitalisation and Data Consultant <span>· SMGBL, Landes beach-safety authority</span></h3><p>Tablet capture instead of paper logs, statistics and a predictive attendance model.</p></div></li>
+        <li><time>2024 and 2025</time><div><h3>Developer Intern, iOS then Full-stack Data <span>· Connected Mates</span></h3><p>An Apple Vision Pro prototype in SwiftUI, then PostgreSQL modelling, APIs and Supabase integration for a mobile app, in Scrum (Jira).</p></div></li>
+        <li><time>Jun – Jul 2024</time><div><h3>Network and Automation Technician <span>· CNSD</span></h3></div></li>
+        <li><time>2026</time><div><h3>Bachelor of Computer Science <span>· SUPINFO Paris</span></h3></div></li>
+        <li><time>2019 – 2025</time><div><h3>Volunteer Firefighter <span>· SDIS 77 Fontainebleau</span></h3><p>Six years on call: calm under pressure and teamwork.</p></div></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="sec" id="open-source" aria-labelledby="oss-title">
+    <p class="label">AI and open source</p>
+    <div class="body">
+      <h2 id="oss-title">Tools for AI agents</h2>
+      <div class="repos">
+        <a class="repo" href="https://github.com/nicovlr/codeclash" target="_blank" rel="noopener"><b>codeclash</b><p>Coding agents build real projects head to head, with Elo ranking and replays.</p><span class="label">Go</span></a>
+        <a class="repo" href="https://github.com/nicovlr/print-pilot" target="_blank" rel="noopener"><b>print-pilot</b><p>MCP server that lets AI agents design, slice and print on a real 3D printer.</p><span class="label">Python · MCP</span></a>
+        <a class="repo" href="https://github.com/nicovlr/mcp-carrefour" target="_blank" rel="noopener"><b>mcp-carrefour</b><p>MCP server that gives AI agents a grocery cart API: search products, fill the cart.</p><span class="label">Python · MCP</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="skills" aria-labelledby="skills-title">
+    <p class="label">Skills</p>
+    <div class="body">
+      <h2 id="skills-title">Toolbox</h2>
+      <dl class="skills">
+        <div><dt>Apps and games</dt><dd>Swift, SwiftUI, Unity (C#), React Native (iOS and Android), App Store Connect, TestFlight, App Review, store listings and keywords, Unity Ads, App Tracking Transparency</dd></div>
+        <div><dt>Web and backend</dt><dd>Next.js, TypeScript, JavaScript, HTML, CSS, Python, FastAPI, Node.js, PostgreSQL, SQLite, Supabase, Git, Linux</dd></div>
+        <div><dt>AI</dt><dd>LLMs, agents, MCP, RAG, LangChain. Claude Code and Cursor every day.</dd></div>
+        <div><dt>Languages</dt><dd>French (native), English (B2)</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <footer class="end">
+    <div class="contact">
+      <div class="mail"><span id="email-2">nico.valerino@gmail.com</span><button class="btn" type="button" id="copy-email-2" data-copy="nico.valerino@gmail.com" aria-controls="email-2">Copy</button></div>
+      <a class="btn" href="https://www.linkedin.com/in/nico-vlr123" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn" href="https://github.com/nicovlr" target="_blank" rel="noopener">GitHub</a>
+    </div>
+    <span>Nicolas Valerino · Paris · Updated November 2026</span>
+  </footer>
+</div>
+
+<script>
+(() => {
+  document.querySelectorAll('[data-copy]').forEach((button) => {
+    button.addEventListener('click', () => {
+      const reset = (label) => setTimeout(() => { button.textContent = label; }, 1800);
+      const select = () => {
+        const el = document.getElementById(button.getAttribute('aria-controls'));
+        if (!el) return;
+        const range = document.createRange(); range.selectNodeContents(el);
+        const sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(range);
+        button.textContent = 'Selected'; reset('Copy');
+      };
+      try {
+        navigator.clipboard.writeText(button.dataset.copy).then(() => { button.textContent = 'Copied'; reset('Copy'); }, select);
+      } catch (e) { select(); }
+    });
+  });
+  const video = document.getElementById('gameplay');
+  if (video) {
+    const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const apply = () => {
+      if (mq.matches) { video.pause(); video.controls = true; }
+      else { const p = video.play(); if (p && p.catch) p.catch(() => { video.controls = true; }); }
+    };
+    apply();
+    if (mq.addEventListener) mq.addEventListener('change', apply);
+  }
+})();
+</script>
+</body>
+</html>
