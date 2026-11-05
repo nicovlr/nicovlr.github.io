@@ -1,21 +1,62 @@
 <!doctype html>
 <html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Paris Panic — aide</title><meta name="description" content="Paris Panic, un tower defense cartoon dans un Paris de carte postale. Aide, contact et confidentialité.">
+<title>Paris Panic : Tower Defense</title><meta name="description" content="Paris Panic, un tower defense cartoon pour iPhone dans un Paris de carte postale. Gameplay, coulisses, aide et contact.">
+<meta property="og:type" content="website"><meta property="og:url" content="https://nicovlr.github.io/paris-panic/fr.html"><meta property="og:title" content="Paris Panic : Tower Defense"><meta property="og:description" content="Tower defense cartoon pour iPhone, à jouer d'une main en portrait. Bientôt sur l'App Store."><meta property="og:image" content="https://nicovlr.github.io/paris-panic/icon.png">
 <link rel="icon" href="icon.png"><link rel="stylesheet" href="style.css"></head>
-<body><main>
-<header><img class="logo" src="logo.png" alt="Paris Panic"></header>
-<nav><a href="fr.html">Aide</a><a href="privacy-fr.html">Confidentialité</a><a href="./">English</a></nav>
-<section class="card">
-<h1>Paris Panic</h1>
-<p>Un tower defense caricatural, à jouer d'une main, en portrait, dans un Paris de carte postale. Le cortège descend le boulevard depuis l'Arc de Triomphe : posez et spécialisez vos unités sur les trottoirs et tenez la ligne le plus longtemps possible. Personne n'est blessé pour de vrai : les manifestants dispersés filent au café.</p>
-<p class="muted">iPhone · gratuit avec publicités facultatives · jouable hors ligne · 33 langues</p>
+<body><main class="game">
+<header><img class="logo" src="logo.png" alt="Paris Panic" width="640" height="385"></header>
+<nav><a href="#aide">Aide</a><a href="privacy-fr.html">Confidentialité</a><a href="./">English</a></nav>
+
+<section class="card hero">
+<div>
+<div class="app-head"><img src="icon.png" alt="" width="72" height="72"><div><h1>Paris Panic : Tower Defense</h1><p>Tower defense cartoon pour iPhone, à jouer d'une main en portrait</p></div></div>
+<span class="badge">Bientôt sur l'App Store</span>
+<dl class="facts">
+<div><dt>Prix</dt><dd>Gratuit</dd></div>
+<div><dt>Moteur</dt><dd>Unity 6</dd></div>
+<div><dt>Langues</dt><dd>33</dd></div>
+<div><dt>Langues de la fiche</dt><dd>39</dd></div>
+</dl>
+<p class="pitch">Un cortège descend un boulevard de carte postale depuis l'Arc de Triomphe, et votre cordon est le dernier rempart. Placez vos unités sur les trottoirs, spécialisez-les et tenez le plus de vagues possible. Personne n'est blessé pour de vrai : les manifestants dispersés filent au café.</p>
+<p class="muted">iPhone · jouable hors ligne · sans compte</p>
+</div>
+<figure class="media">
+<div class="phone"><video id="gameplay" src="../assets/paris-panic-gameplay.mp4" poster="../assets/paris-panic-poster.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Gameplay de Paris Panic : on pose des unités, on choisit la spécialité gaz lacrymogène, puis le cortège et un tracteur arrivent sur la défense"></video></div>
+<figcaption>Gameplay, capturé dans le moteur du jeu</figcaption>
+</figure>
 </section>
+
 <section class="card">
+<h2>Les coulisses du jeu</h2>
+<ul class="points">
+<li><h3>Modèle économique</h3><p>Gratuit, financé par Unity Ads. Les vidéos récompensées sont toujours au choix du joueur (continuer une partie perdue, ou commencer la suivante avec plus d'argent) et les interstitielles sont limitées à une toutes les deux parties. Un achat « sans pub » viendra ensuite.</p></li>
+<li><h3>Conformité</h3><p>Demande App Tracking Transparency avant le démarrage du SDK publicitaire, manifestes de confidentialité, étiquettes App Privacy et app-ads.txt. Le détail est dans la <a href="privacy-fr.html">politique de confidentialité</a>.</p></li>
+<li><h3>Game design</h3><p>3 cartes d'unités qui se déclinent en 7 spécialisations, 6 types d'ennemis dont un tracteur en boss, des vagues sans fin par cycles de 8, des saisons qui combinent 3 rues et 5 règles, et un arbre de 12 compétences.</p></li>
+<li><h3>Production</h3><p>Toute la 3D est générée par des scripts Blender. Un seul script enchaîne le build Unity, des parties de test automatiques et l'envoi sur TestFlight.</p></li>
+</ul>
+<p class="muted note">Soumis à l'App Store en octobre 2026.</p>
+</section>
+
+<section class="card" id="aide">
 <h2>Aide</h2>
 <p><b>Comment changer la langue ?</b><br>Le jeu suit la langue de votre iPhone. Pour en choisir une autre pour Paris Panic seulement : Réglages de l'iPhone › Apps › Paris Panic › Langue (ou dans le jeu : Réglages › Langue).</p>
 <p><b>Où est enregistrée ma progression ?</b><br>Uniquement sur votre iPhone. Supprimer l'app l'efface ; vous pouvez aussi l'effacer dans Réglages › Effacer la progression.</p>
 <p><b>Les publicités</b><br>Les vidéos ne s'affichent que si vous les choisissez (pour continuer une partie perdue ou obtenir un bonus pour la suivante), plus une courte pub toutes les deux parties terminées. Au premier lancement, iOS vous demande si les apps peuvent vous suivre à des fins publicitaires : le jeu fonctionne pareil quelle que soit la réponse, modifiable à tout moment dans Réglages › Confidentialité et sécurité › Suivi.</p>
 <p><b>Un bug, une idée ?</b><br>Écrivez à <a href="mailto:nico.valerino@gmail.com?subject=Paris%20Panic">nico.valerino@gmail.com</a> en précisant votre modèle d'iPhone et la version d'iOS. Merci !</p>
 </section>
-<footer>© 2026 Nicolas Valerino · <a href="privacy-fr.html">Politique de confidentialité</a></footer>
-</main></body></html>
+<footer>© 2026 <a href="../">Nicolas Valerino</a> · <a href="privacy-fr.html">Politique de confidentialité</a></footer>
+</main>
+<script>
+(function () {
+  var v = document.getElementById('gameplay');
+  if (!v || !window.matchMedia) return;
+  var mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+  function apply() {
+    if (mq.matches) { v.pause(); v.controls = true; }
+    else { var p = v.play(); if (p && p.catch) p.catch(function () { v.controls = true; }); }
+  }
+  apply();
+  if (mq.addEventListener) mq.addEventListener('change', apply);
+})();
+</script>
+</body></html>
