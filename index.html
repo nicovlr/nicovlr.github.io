@@ -90,7 +90,7 @@ ul, ol { margin: 0; padding: 0; }
 .btn svg { width: 16px; height: 16px; fill: currentColor; flex: none; }
 .where { color: var(--ink-soft); font-size: 14px; }
 
-.dock { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin-top: 10px; }
+.dock { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; margin-top: 10px; }
 .tile { display: grid; grid-template-columns: 52px minmax(0, 1fr); align-items: center; gap: 12px; padding: 12px; background: var(--surface); border: 1px solid var(--line); border-radius: 16px; text-decoration: none; }
 .tile:hover { border-color: var(--signal); color: inherit; }
 .tile img { width: 52px; height: 52px; border-radius: 12px; display: block; }
@@ -139,6 +139,8 @@ ul, ol { margin: 0; padding: 0; }
 .pair .app { grid-template-rows: auto auto auto 1fr auto auto; }
 .shots { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; max-width: 340px; }
 .shots img { width: 100%; height: auto; aspect-ratio: 598 / 1300; object-fit: cover; border-radius: 12px; border: 1px solid var(--line); display: block; }
+.shots.wide { max-width: 720px; }
+.shots.wide img { aspect-ratio: 1280 / 589; }
 
 .more { color: var(--ink-soft); font-size: 15px; max-width: 70ch; }
 .more b { color: var(--ink); font-weight: 600; }
@@ -203,8 +205,12 @@ td:nth-child(2) { white-space: nowrap; }
 footer.end { border-top: 1px solid var(--line); padding-block: 32px 0; display: flex; flex-wrap: wrap; gap: 14px 24px; align-items: center; justify-content: space-between; color: var(--ink-soft); font-size: 14px; }
 footer.end .contact { gap: 8px; }
 
+@media (max-width: 1100px) {
+  .dock { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
 @media (max-width: 960px) {
   .dock { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .dock > :last-child:nth-child(odd) { grid-column: 1 / -1; }
   .pair { grid-template-columns: minmax(0, 1fr); }
 }
 @media (max-width: 860px) {
@@ -217,6 +223,7 @@ footer.end .contact { gap: 8px; }
 @media (max-width: 560px) {
   .dock { grid-template-columns: minmax(0, 1fr); }
   .facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .shots.wide { grid-template-columns: minmax(0, 1fr); }
   .points li, .roles li, .skills div { grid-template-columns: minmax(0, 1fr); gap: 2px; }
   .mail span { font-size: 13px; }
 }
@@ -242,6 +249,7 @@ footer.end .contact { gap: 8px; }
       <a class="tile" href="#paris-panic"><img src="assets/paris-panic-icon.png" alt="" width="52" height="52"><span><b>Paris Panic</b><span class="status soon">Coming soon</span></span></a>
       <a class="tile" href="#swiped"><img src="assets/swiped-icon.png" alt="" width="52" height="52"><span><b>Swiped</b><span class="status">Live on the App Store</span></span></a>
       <a class="tile" href="#all-in-wake"><img src="assets/all-in-wake-icon.png" alt="" width="52" height="52"><span><b>All In Wake</b><span class="status">Live on the App Store</span></span></a>
+      <a class="tile" href="#altivolt"><img src="assets/altivolt-icon.png" alt="" width="52" height="52"><span><b>Altivolt</b><span class="status soon">Coming soon</span></span></a>
       <a class="tile" href="#erescue"><span class="mark"><img src="assets/erescue-icon.svg" alt="" width="34" height="34"></span><span><b>eRescue</b><span class="status">In use on ~28 beaches</span></span></a>
     </nav>
   </header>
@@ -249,8 +257,8 @@ footer.end .contact { gap: 8px; }
   <section class="sec" id="apps" aria-labelledby="apps-title">
     <p class="label">Apps and games</p>
     <div class="body">
-      <h2 id="apps-title">Three apps, three business models</h2>
-      <p class="intro">All three run on my own Apple developer account, and I handle the whole chain: code, builds, TestFlight, App Review, localization and store listings.</p>
+      <h2 id="apps-title">Four apps, three business models</h2>
+      <p class="intro">All four run on my own Apple developer account, and I handle the whole chain: code, builds, TestFlight, App Review, localization and store listings.</p>
 
       <article class="app featured" id="paris-panic">
         <div class="main">
@@ -325,6 +333,27 @@ footer.end .contact { gap: 8px; }
         </article>
       </div>
 
+      <article class="app" id="altivolt">
+        <div class="app-head">
+          <img src="assets/altivolt-icon.png" alt="Altivolt icon" width="68" height="68">
+          <div class="app-title"><h3>Altivolt</h3><p>Side-view driving game for iPhone, played in landscape</p></div>
+          <span class="pill soon">Coming soon</span>
+        </div>
+        <dl class="facts">
+          <div><dt>Price</dt><dd>Free</dd></div>
+          <div><dt>Zones</dt><dd>5</dd></div>
+          <div><dt>Languages</dt><dd>10</dd></div>
+          <div><dt>Requires</dt><dd>iOS 16</dd></div>
+        </dl>
+        <p class="desc">A futuristic electric car drives over the hills and flies across ravines on its belly thrusters, from a meadow all the way to orbit. The battery drains as you drive and faster as you fly, and green battery cells recharge it.</p>
+        <ul class="points">
+          <li><span>Monetization</span><span>Free, with one small Unity Ads banner on the title and results screens, never during a run. Non-personalized ads only, so no tracking prompt. No in-app purchases.</span></li>
+          <li><span>Game design</span><span>Physics driving with flight, a battery to manage, coins for 4 garage upgrades, five zones and a step-by-step tutorial on the first run. Plays offline, in 10 languages.</span></li>
+        </ul>
+        <div class="shots wide"><img src="altivolt/shot-1.jpg" alt="Altivolt screenshot: the car flies over a ravine on its thrusters" loading="lazy" width="1280" height="589"><img src="altivolt/shot-3.jpg" alt="Altivolt screenshot: the car flies in orbit" loading="lazy" width="1280" height="589"></div>
+        <a class="btn store" href="altivolt/">View the game page</a>
+      </article>
+
       <div class="table-wrap">
         <table>
           <thead><tr><th scope="col">App</th><th scope="col">Model</th><th scope="col">How it earns or grows</th></tr></thead>
@@ -332,6 +361,7 @@ footer.end .contact { gap: 8px; }
             <tr><td>Swiped</td><td>Free</td><td>No ads, no subscription, no account. Growth comes from App Store search and shared links.</td></tr>
             <tr><td>All In Wake</td><td>Paid upfront</td><td>$0.99 / 0,99 €, no ads and no in-app purchases.</td></tr>
             <tr><td>Paris Panic</td><td>Free-to-play</td><td>Unity Ads: opt-in rewarded videos, interstitials capped at one every two runs. Remove-ads purchase planned.</td></tr>
+            <tr><td>Altivolt</td><td>Free-to-play</td><td>One Unity Ads banner on the title and results screens, never during a run. Non-personalized ads only, no in-app purchases.</td></tr>
           </tbody>
         </table>
       </div>

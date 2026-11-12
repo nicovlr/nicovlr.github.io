@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Altivolt</title><meta name="description" content="Altivolt, a free side-view driving game for iPhone with an electric car that flies over ravines, from a meadow to orbit. How to play, help and contact.">
+<meta property="og:type" content="website"><meta property="og:url" content="https://nicovlr.github.io/altivolt/"><meta property="og:title" content="Altivolt"><meta property="og:description" content="Side-view driving game for iPhone: an electric car that flies over ravines, from a meadow to orbit."><meta property="og:image" content="https://nicovlr.github.io/altivolt/icon.png">
+<link rel="icon" href="icon.png"><link rel="stylesheet" href="style.css"></head>
+<body><main class="game">
+<header><p class="wordmark">Altivolt</p></header>
+<nav><a href="#play">How to play</a><a href="#help">Help</a><a href="privacy.html">Privacy</a><a href="fr.html">Français</a></nav>
+
+<section class="card hero">
+<div class="app-head"><img src="icon.png" alt="" width="72" height="72"><div><h1>Altivolt</h1><p>Side-view driving game for iPhone, played in landscape</p></div></div>
+<a class="store" href="https://apps.apple.com/app/id6833883462">Altivolt on the App Store</a>
+<dl class="facts">
+<div><dt>Price</dt><dd>Free</dd></div>
+<div><dt>Zones</dt><dd>5</dd></div>
+<div><dt>Languages</dt><dd>10</dd></div>
+<div><dt>Requires</dt><dd>iOS 16</dd></div>
+</dl>
+<p class="pitch">Altivolt is a side-view physics driving game. You drive a futuristic electric car over the hills, and when a ravine opens up ahead, its belly thrusters carry it across. The battery drains as you drive and faster as you fly: pick up green battery cells to recharge it and see how far you get, from a meadow all the way to orbit.</p>
+<p class="muted">iPhone · landscape · plays offline · no account · no in-app purchases</p>
+<figure class="media">
+<div class="phone"><video id="demo" src="../assets/altivolt-demo.mp4" poster="../assets/altivolt-poster.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Altivolt gameplay demo"></video></div>
+<figcaption>Gameplay demo</figcaption>
+</figure>
+</section>
+
+<section class="card">
+<h2>Screenshots</h2>
+<div class="shots">
+<figure><a href="shot-1.jpg"><img src="shot-1.jpg" alt="The car flies over a ravine on its thrusters, with green hills and wind turbines behind" width="1280" height="589" loading="lazy"></a><figcaption>Meadow</figcaption></figure>
+<figure><a href="shot-2.jpg"><img src="shot-2.jpg" alt="The car takes off on its thrusters on the ridges, under a purple night sky" width="1280" height="589" loading="lazy"></a><figcaption>Ridges</figcaption></figure>
+<figure><a href="shot-3.jpg"><img src="shot-3.jpg" alt="The car flies on its thrusters in orbit, with a blue planet and satellites behind" width="1280" height="589" loading="lazy"></a><figcaption>Orbit</figcaption></figure>
+</div>
+</section>
+
+<section class="card" id="play">
+<h2>How to play</h2>
+<ul class="points">
+<li><h3>Left side of the screen</h3><p><span class="key">BRAKE</span> slow down or back up. In the air, it lowers the nose.</p><p><span class="key">THRUSTERS</span> hold to fly over a ravine or save a bad jump.</p></li>
+<li><h3>Right side of the screen</h3><p><span class="key">ACCELERATE</span> hold to drive. In the air, it lifts the nose.</p></li>
+<li><h3>Battery</h3><p>It drains while you drive, and about four times faster while you fly. Green battery cells on the road recharge it. The run ends when the battery is empty or when the car lands on its roof.</p></li>
+<li><h3>Garage</h3><p>You keep your coins from run to run and spend them in the garage on 4 upgrades with ten levels each: Motor, Suspension, Battery and Thrusters.</p></li>
+<li><h3>Five zones</h3><p>The road climbs from a meadow to orbit: Meadow, Canyon, Ridges, Stratosphere and Orbit.</p></li>
+<li><h3>Tutorial</h3><p>Your first run shows the controls step by step. To see it again, tap TUTORIAL on the title screen.</p></li>
+</ul>
+</section>
+
+<section class="card" id="help">
+<h2>Help</h2>
+<p><b>Where is my progress saved?</b><br>On your iPhone only: coins, best distance, upgrades and settings. The game has no account and no online save, so deleting the app erases your progress.</p>
+<p><b>Does it need an internet connection?</b><br>No. Altivolt plays fully offline.</p>
+<p><b>Why is there an ad?</b><br>Altivolt is free, and a small banner at the top of the title and results screens helps pay for its development. It never shows during a run, and it does not show at all when you play offline. The ads are not personalized and the game never asks to track you; the details are in the <a href="privacy.html">privacy policy</a>.</p>
+<p><b>Which languages does it speak?</b><br>Ten: English, French, German, Spanish, Italian, Brazilian Portuguese, Japanese, Korean, and Simplified and Traditional Chinese. The game follows your iPhone's language, and uses English if yours is not on the list.</p>
+<p><b>A bug, an idea?</b><br>Write to <a href="mailto:nico.valerino@gmail.com?subject=Altivolt">nico.valerino@gmail.com</a> with your iPhone model, your iOS version and what happened (a screenshot helps). Thank you!</p>
+</section>
+
+<section class="card" id="contact">
+<h2>Contact</h2>
+<p>Altivolt is made by Nicolas Valerino, an independent developer in Paris. For questions, bugs or ideas: <a href="mailto:nico.valerino@gmail.com?subject=Altivolt">nico.valerino@gmail.com</a>, in English or French.</p>
+</section>
+<footer>© 2026 <a href="../">Nicolas Valerino</a> · <a href="privacy.html">Privacy policy</a></footer>
+</main>
+<script>
+(function () {
+  var v = document.getElementById('demo');
+  if (!v || !window.matchMedia) return;
+  var mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+  function apply() {
+    if (mq.matches) { v.pause(); v.controls = true; }
+    else { var p = v.play(); if (p && p.catch) p.catch(function () { v.controls = true; }); }
+  }
+  apply();
+  if (mq.addEventListener) mq.addEventListener('change', apply);
+})();
+</script>
+</body></html>
