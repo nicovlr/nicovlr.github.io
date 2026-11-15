@@ -1,4 +1,5 @@
 # Paris Panic and Altivolt - authorized digital sellers (IAB app-ads.txt), from the Unity Monetization dashboard, 2026-11-12.
+# Montcendre - Google AdMob, 2026-11-15.
 ownerdomain=nicovlr.github.io
 adwmg.com, 159512, RESELLER, c9688a22012618e7
 appads.in, 106246, RESELLER
@@ -163,3 +164,4 @@ xandr.com, 17779, RESELLER
 xandr.com, 7353, RESELLER
 zetaglobal.net, 525, RESELLER
 zmaticoo.com, 5135195, RESELLER
+google.com, pub-3162065553102959, DIRECT, f08c47fec0942fa0
